@@ -6,6 +6,9 @@ on:
 jobs:
  NextJS-App:
     runs-on: ubuntu-latest
+    concurrency: 
+       group: deploy
+       cancel-in-progress: true
 
     steps:
       - name: Checkout
