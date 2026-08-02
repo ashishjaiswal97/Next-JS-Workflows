@@ -1,31 +1,28 @@
-name: Next JS Build with Caching & Artifacts
-
+name: NextJs build using Caching and Artifacts
 on:
-  push:
+  push: 
     branches: [ main ]
 
 jobs:
-  build:
+ NextJS-App:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4.2.2
-
-      - name: Setup Node JS
-        uses: actions/setup-node@v4.2.0
+      - name: Checkout
+        uses: actions/checkout@v2.8.0
+      - name: NodeJS with cache
+        uses: Drafteame/node-cache-action@v0.3.0
         with:
-          node-version: 22.x
-          cache: 'npm'
-
-      - name: Install Dependencies
+          node-version: 24.x
+          cache: npm
+      - name: install dependencies
         run: npm install
-
-      - name: Build Next Js App
+      - name: Build NextJs
         run: npm run build
-
-      - name: Upload Build on Artifacts
-        uses: actions/upload-artifact@v4.6.0
+      - name: Download a Build Artifact 
+        uses: actions/download-artifact@v3.1.0
         with:
-          name: nextjs-build
-          path: out/
+          # Artifact name
+          name: Artifacts the build output which helps during the deployments
+          # Destination path
+          path: # out/
