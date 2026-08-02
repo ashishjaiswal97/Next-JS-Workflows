@@ -25,4 +25,4 @@ jobs:
           # Artifact name
           name: Artifacts the build output which helps during the deployments
           # Destination path
-          path: # out/
+          path: out/
