@@ -20,7 +20,7 @@ jobs:
       - name: Build NextJs
         run: npm run build
       - name: Download a Build Artifact 
-        uses: actions/download-artifact@v3.1.0
+        uses: actions/upload-artifact@v7.0.1
         with:
           # Artifact name
           name: Artifacts the build output which helps during the deployments
